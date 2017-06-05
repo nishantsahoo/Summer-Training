@@ -33,3 +33,6 @@ add(b=10,a=14,c=5)
 // >undefined
 
 */
+var obj = {a: 10, b: "Nishant", c: true}
+obj.toString()
+// >"[object Object]"
