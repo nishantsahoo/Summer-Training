@@ -1,0 +1,54 @@
+Window
+HTMLDocument
+var myel = document.getElementById('myel')
+// myel.innerHTML
+"
+			<p>Para 1</p>
+			<p>Para 2</p>
+			<p>Para 3</p>
+"
+myel.children
+// >(3) [p, p, p]
+myel.childNodes
+// (7) [text, p, text, p, text, p, text]
+var para3 = myel.children[2]
+// undefined
+para3.parentNode
+// <div id="myel">
+			<p>Para 1</p>
+			<p>Para 2</p>
+			<p>Para 3</p>
+// </div>
+
+para3.nextElementSibling
+// null
+para3.previousElementSibling
+// <p>Para 2</p>
+
+var myel = document.getElementById('myel')
+undefined
+var para = document.createElement('p')
+undefined
+para.innerHTML = "some new test"
+"some new test"
+myel.append(para)
+undefined
+
+var pop = document.createElement('pop')
+undefined
+myel.append(pop)
+undefined
+myel.children
+(5) [p, p, p, p, pop]
+
+myel.children[2].remove()
+undefined
+
+var newP = document.createElement('p')
+undefined
+newP.innerHTML = "Para 4"
+"Para 4"
+myel.append(newP)
+undefined
+myel.children[3].remove()
+undefined

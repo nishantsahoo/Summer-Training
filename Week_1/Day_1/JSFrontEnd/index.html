@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Nagarro_JSFrontEnd</title>
+	</head>
+	<body>	
+		<input type="text" id="max">
+		<button id="fissbuzz">Print Fissbuzz</button>
+		
+		<ul id="answer"></ul>
+
+		<script>
+			var maxNum=document.getElementById('max')
+			var btn=document.getElementById('fissbuzz')
+			var ul=document.getElementById('answer')
+
+			btn.onclick = function () {
+				var startTime = (new Date()).getTime();
+				var n = +maxNum.value; // converts the string into an integer or parseInt(maxNum.value)
+				for (var i = 1; i <= n; i++) {
+					if(i%15==0)		
+					{
+						var newLi = document.createElement('li');
+						newLi.innerHTML = "fissbuzz";
+						ul.append(newLi);
+					}
+					else
+					if (i%5==0) {
+						var newLi = document.createElement('li');
+						newLi.innerHTML = "buzz";
+						ul.append(newLi);
+					}
+					else
+					if (i%3==0) {
+						var newLi = document.createElement('li');
+						newLi.innerHTML = "fiss";
+						ul.append(newLi);
+						
+					}
+					else
+					{
+						var newLi = document.createElement('li');
+						newLi.innerHTML = i;
+						ul.append(newLi);
+					}
+
+				}
+				console.log((new Date()).getTime() - startTime);
+
+			}
+
+		</script>
+
+	</body>
+</html>

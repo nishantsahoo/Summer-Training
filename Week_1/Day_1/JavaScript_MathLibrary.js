@@ -1,5 +1,5 @@
-Math.pi
-Math.sqrt2
+Math.PI
+Math.SQRT2
 Math.pow()
 Math.ceil()
 Math.sqrt()
