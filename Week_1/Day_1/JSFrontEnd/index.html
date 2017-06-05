@@ -17,11 +17,10 @@
 			btn.onclick = function () {
 				var startTime = (new Date()).getTime();
 				var n = +maxNum.value; // converts the string into an integer or parseInt(maxNum.value)
-				var result = ''
+				var result = '';
 				for (var i = 1; i <= n; i++) {
-					if(i%3==0) result += '<li>fiss</li>';
-					if(i%5==0) result += '<li>fissbuss</li>';
-					if(result === '') result = '<li>' + i + '</li>';
+					// result += '<li>' + (((i%3?"":"fizz")+(i%5?"":"buzz"))||i) + '</li>';
+					result += (((i%3?"":"fizz")+(i%5?"":"buzz"))||i) + '<br>';
 				}
 
 				ul.innerHTML = result;
