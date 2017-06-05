@@ -1,5 +1,5 @@
 // All of these statements have been executed on the console in the browser // ctrl+shift+i in chrome and then click on console
-// Js is a functional language
+// ***Js is a functional language***
 
 console.log("Hello, world");
 // >Hello, world
