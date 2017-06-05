@@ -18,32 +18,13 @@
 				var startTime = (new Date()).getTime();
 				var n = +maxNum.value; // converts the string into an integer or parseInt(maxNum.value)
 				for (var i = 1; i <= n; i++) {
-					if(i%15==0)		
-					{
-						var newLi = document.createElement('li');
-						newLi.innerHTML = "fissbuzz";
-						ul.append(newLi);
-					}
-					else
-					if (i%5==0) {
-						var newLi = document.createElement('li');
-						newLi.innerHTML = "buzz";
-						ul.append(newLi);
-					}
-					else
-					if (i%3==0) {
-						var newLi = document.createElement('li');
-						newLi.innerHTML = "fiss";
-						ul.append(newLi);
-						
-					}
-					else
-					{
-						var newLi = document.createElement('li');
-						newLi.innerHTML = i;
-						ul.append(newLi);
-					}
-
+					var newLi = document.createElement('li');
+					var result = ''
+					if(i%3==0) result += 'fiss';
+					if(i%5==0) result += 'buss';
+					if(result ==='') result = i;
+					newLi.innerHTML = result;
+					ul.append(newLi);
 				}
 				console.log((new Date()).getTime() - startTime);
 
