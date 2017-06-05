@@ -17,15 +17,14 @@
 			btn.onclick = function () {
 				var startTime = (new Date()).getTime();
 				var n = +maxNum.value; // converts the string into an integer or parseInt(maxNum.value)
+				var result = ''
 				for (var i = 1; i <= n; i++) {
-					var newLi = document.createElement('li');
-					var result = ''
-					if(i%3==0) result += 'fiss';
-					if(i%5==0) result += 'buss';
-					if(result ==='') result = i;
-					newLi.innerHTML = result;
-					ul.append(newLi);
+					if(i%3==0) result += '<li>fiss</li>';
+					if(i%5==0) result += '<li>fissbuss</li>';
+					if(result === '') result = '<li>' + i + '</li>';
 				}
+
+				ul.innerHTML = result;
 				console.log((new Date()).getTime() - startTime);
 
 			}
