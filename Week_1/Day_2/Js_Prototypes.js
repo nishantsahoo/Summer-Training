@@ -1,6 +1,8 @@
 // Prototypes
 // Parent object/ Prototype object
 
+// This is ES5.
+
 // Create 3 objects s1,s2, and s3 of class Student
 function Student(name, surname, age) {
 	this.name = name
@@ -75,7 +77,7 @@ function Student(name, eng, maths, science) { // function constrcutor
 	this.science = science
 }
 
-Student.prototype.calc = function() {
+Student.prototype.calc = function() { 
 	console.log(this.english+this.maths+this.science);
 }
 
@@ -84,3 +86,75 @@ s1.calc()
 
 // __proto__ is a 'property' that points to the parent of an object
 // Read objects and protoypes in Javascript from youtube
+
+/*
+class Student::A.calc
+{
+	//
+	Student(){
+
+	}
+};
+
+int Student::calc(){
+	//
+}
+
+*/
+// 2 approaches
+// Composition Made an object for Marks and Student
+
+/* 
+
+function Marks(m1,m2,m3){
+	this.m1=m1
+	this.m2=m2
+	this.m3=m3
+}
+
+function Student(name,marks //Object){
+	this.name = name
+	this.marks = marks
+}
+
+Student.prototype.calculate = function(){
+	return(this.marks.m1 + this.marks.m2 + this.marks.m3)
+}
+
+var m = new Marks(10,20,30)
+var s1 = new Student("Nishant", m)
+
+
+*/
+
+// One function constructor
+
+// There are no "classes" in Js
+// We have objects, prototypes, and the prototypical chain
+// We have function constructors and the new keywords
+// All of these enable to siulate "class-like" functionality in Js = ES5 "Classes"
+
+/* 
+
+Syntactical sugar
+
+eg.
+var cl = function(input){
+	console.log(input);
+}
+cl('Hello')
+Changed the look but the functionality remained the same
+
+ES6 has classes
+- a class keyword
+ES6 is new 2015
+Think non-classical, looks classical
+Classical - C++, Python
+
+ES6 is just syntactical sugar
+Don't think in C++ or Java while coding in Java
+
+*/
+
+// Example of ES6
+
