@@ -4,6 +4,8 @@ for(var i=0;i<listDetail.children.length;i++) {
 	console.log((i+1) + ' ' + name);
 }
 /*
+Link: http://www.imdb.com/list/ls055386972/
+Better solution
 var info = document.getElementsByClassName('info')
 for (i=0;i<50;i++) { console.log((i+1) + '. ' + info[i].getElementsByTagName('b')[0].innerText); }
 */
