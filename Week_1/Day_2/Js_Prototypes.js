@@ -26,7 +26,7 @@ s2 = new Student("Rahul", "Jain", 21)
 s3 = new Student("Manan", "Agarwal", 34)
 // Student {name: "Manan", surname: "Agarwal", age: 34}
 
-s1.__proto__ = s2
+s1.__proto__ = s2 // __proto__ is a property of s1 which points to s2 now. This means that s2 is a parent of s1
 s2.__proto__ = s3
 console.log(s1.__proto__);
 
@@ -65,7 +65,8 @@ Company.prototype.greet = function () { // method is in proto to save
 }
 
 var cb = new Company("Nishant", "Sahoo");
-cb.greet() // Hello from Nishant Sahoo
+cb.greet() // call of the function greet
+// Output - Hello from Nishant Sahoo
 
 // try to understand this
 // don't sleep. no. please.
@@ -82,7 +83,7 @@ Student.prototype.calc = function() {
 }
 
 var s1 = new Student("Nishant Sahoo", 100, 100, 100)
-s1.calc()
+s1.calc() // call of the funtion calc
 
 // __proto__ is a 'property' that points to the parent of an object
 // Read objects and protoypes in Javascript from youtube
@@ -156,5 +157,34 @@ Don't think in C++ or Java while coding in Java
 
 */
 
-// Example of ES6
+// !!!!!!!!!!!!!!Example of ES6!!!!!!!!!!!!!!!!!
+// ES6 will be used for REACT( <3 )
 
+class Student{
+
+	constructor(name,english,math,science){
+		this.name = name
+		this.english = english
+		this.math = math
+		this.science = science
+	}
+
+	combine() { return (this.english+this.math+this.science); }
+}
+
+var s1 = new Student("Nishant", 100, 100, 100)
+s1.combine() // call of the function combine
+
+// Transpilation
+
+/* Difference between prototype and __proto__ IMP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+__proto__ is a *property* which refers to the prototype(English)/parent of an object
+
+prototype *keyword* - It is the Prototype(English) but only for functions which is an object which has a __proto__ property who was a Prototype(English)
+// GOOD SHIT!
+
+new keyword makes an object whose __proto__ to the prototype of that object 
+eg. newObj.__proto__ = Obj(ClassName/function constructor name).prototype
+Basically ^^^
+
+*/
