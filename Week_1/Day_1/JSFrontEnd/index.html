@@ -6,20 +6,17 @@
 	<body>	
 		<input type="text" id="max">
 		<button id="fissbuzz">Print Fissbuzz</button>
-		
 		<ul id="answer"></ul>
 
 		<script>
 			var maxNum=document.getElementById('max')
 			var btn=document.getElementById('fissbuzz')
 			var ul=document.getElementById('answer')
-
 			btn.onclick = function () {
 				var startTime = (new Date()).getTime();
 				var n = +maxNum.value; // converts the string into an integer or parseInt(maxNum.value)
 				var result = '';
 				for (var i = 1; i <= n; i++) {
-					// result += '<li>' + (((i%3?"":"fizz")+(i%5?"":"buzz"))||i) + '</li>';
 					result += (((i%3?"":"fizz")+(i%5?"":"buzz"))||i) + '<br>';
 				}
 
