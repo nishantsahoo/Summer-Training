@@ -22,8 +22,8 @@ obj
 // >Object {a: 10, b: "Nishant", c: true, d: 123}
 delete obj.a
 // >true
-obj
-Object {b: "Nishant", c: true, d: 123}
+obj 
+// >Object {b: "Nishant", c: true, d: 123}
 
 // The delete operator removes a given property from an object. On successful deletion, it will return true, else false will be returned
 obj['b']
