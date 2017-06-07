@@ -26,13 +26,27 @@ h2
 	color: black;
 	border-bottom: 3px solid #78788c;
 	text-align: center;
+	font-family: monospace;
 }
 input
 {
-	width:65%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2
+	width:65%;
+	padding:10px;
+	box-sizing:border-box;
+	background:none;
+	outline:none;
+	resize:none;
+	border:0;
+	font-family: monospace;
+	transition:all .3s;
+	border-bottom:2px solid #bebed2;
+	font-size: 0.9em;
 }
 
-input:focus{border-bottom:2px solid #78788c}
+input:focus
+{
+	border-bottom:2px solid #78788c;
+}
 
 p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
 
@@ -41,7 +55,7 @@ button
 	float: right;
 	padding: 8px 12px;
 	margin: 0px 0 0;
-	font-family: 'Montserrat',sans-serif;
+	font-family: monospace;
 	border: 2px solid #78788c;
 	background: 0;
 	color: #5a5a6e;
@@ -78,6 +92,7 @@ span
 h3 
 {
 	color: black;
+	font-family: monospace;
 }
 
 .listblock
