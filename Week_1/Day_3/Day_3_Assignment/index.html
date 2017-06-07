@@ -41,7 +41,6 @@
 		var toDoList = document.getElementById('ToDoList');
 		var list = "";
 		var counter = 0;
-		NoOfThings.innerHTML = counter;
 
 		input.onkeypress = function(e) {
        		doClick('ToDoButton', e);
@@ -50,12 +49,14 @@
 			var inputVal = input.value;
 				if (inputVal == "") {
 					alert("Please enter a ToDo");
+					NoOfThings.innerHTML = counter;
 				}
 				else {
 					list = '<li>' + inputVal + '</li>' + list;
 					input.value = "";
 					toDoList.innerHTML = list;
 					counter++;
+					NoOfThings.innerHTML = counter;
 				}
 		}
 	</script>
