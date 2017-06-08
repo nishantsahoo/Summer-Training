@@ -16,10 +16,13 @@ yo();
 
 function Person(name) {
     this.name = name;
-    console.log(this==window); // if new is used, false
+    console.log(this == window); // if new is used, false
     console.log(this);
     return 'something'; // accessible when new is not used. If new is used, the returned value is sent to the autobox
     // but not to the assigned variable
+    // values can be returned only if they are objects or functions
+    // eg. return {a: 10} returns this object to P
+    // eg. return function() {} will return this function to p in line 28
 }
 
 var p = new Person('Arnav');

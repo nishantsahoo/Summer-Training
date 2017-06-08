@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jQuery.js"></script>
+    <script>
+        $(function () {
+            $('#add').click( function () {
+                // if you call val without an arguement, it returns the value in input, and if you call val
+                // with some string/data as a parameter, it sets this value in the input field
+                // var newTodo = $('#newtodo').val();
+                // $('#todolist').prepend('<li>' + newTodo + '</li>');
+                $('<li>' + $('#newtodo').val() + '</li>').prependTo('#todolist');
+                // $('li' + $('#newtodo') >> created a DOM element
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <input type="text" id="newtodo">
+    <button id="add">Add ToDo</button>
+    <ul id="todolist"></ul>
+</body>
+</html>
