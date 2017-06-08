@@ -10,3 +10,17 @@ Containers
 
 Bootstrap divides your webpage into 12 columns
 Every row has 12 parts
+
+Assignment : Single page
+Shopping cart
+
+Top of the page: List of items
+Price and add to cart option
+Cart must have a model inside the local storage
+Cart should be in form of a table
+Table
+name price quantity amount(quantity*price)
+
+cb.lk/jquery4
+
+
