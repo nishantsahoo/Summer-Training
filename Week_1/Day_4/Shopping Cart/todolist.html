@@ -5,17 +5,54 @@
     <title>Title</title>
     <script src="jQuery.js"></script>
     <script>
-        $(function () {
-            $('#add').click( function () {
+
+        //$(function () {
+            /*$('#add').click( function () {
                 // if you call val without an arguement, it returns the value in input, and if you call val
                 // with some string/data as a parameter, it sets this value in the input field
                 // var newTodo = $('#newtodo').val();
                 // $('#todolist').prepend('<li>' + newTodo + '</li>');
+
+                // Model View
+                // DDAU - Data down action up
+                // views are same as model
+
+                var todos = [];
                 $('<li>' + $('#newtodo').val() + '</li>').prependTo('#todolist');
+
                 // $('li' + $('#newtodo') >> created a DOM element
             });
-        });
+        });*/
 
+
+        function saveTodos() {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        } // end of the function saveTodos
+
+        function retrieveTodos() {
+            if (localStorage.getItem('todos')) {
+                todos = JSON.parse(localStorage.getItem('todos'));
+            }
+        } // end of the function retrieveTodos
+
+        var todos = [];
+        function refreshTodos() {
+            $('#todolist').html('');
+            for(todo of todos) {
+                $('<li>' + todo + '</li>').prependTo('#todolist');
+            }
+        } // end of the function refreshTodos
+
+        $(function () {
+            retrieveTodos();
+            refreshTodos();
+
+            $('#add').click(function () {
+                todos.push($('#newtodo').val());
+                refreshTodos();
+                saveTodos();
+            })
+        })
 
     </script>
 </head>
