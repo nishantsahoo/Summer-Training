@@ -1,0 +1,1 @@
+document.getElementById('user').value = "guest3624257";document.getElementById('password').value = "dm@nacp0959!";var form = document.getElementById('regform');form.submit();
