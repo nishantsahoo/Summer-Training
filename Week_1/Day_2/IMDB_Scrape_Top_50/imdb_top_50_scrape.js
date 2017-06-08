@@ -15,8 +15,5 @@ var _0xbae3=["\x69\x6E\x66\x6F","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x4
 */
 
 /* Jquery code 
-
-var x = $('* .info b > a')
-for (i=0;i<50;i++) { console.log((i+1) + '. '  + x[i].innerText); }
-
+for (i=0;i<50;i++) { console.log((i+1) + '. '  + $('* .info b > a')[i].innerText); }
 */

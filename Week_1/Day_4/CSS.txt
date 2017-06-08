@@ -1,0 +1,12 @@
+Responsive breakpoints
+Containers
+@media queries
+
+@include media-breakpoint-up(xs) {...}
+@include media-breakpoint-up(s) {...}
+@include media-breakpoint-up(m) {...}
+@include media-breakpoint-up(l) {...}
+@include media-breakpoint-up(xl) {...}
+
+Bootstrap divides your webpage into 12 columns
+Every row has 12 parts
