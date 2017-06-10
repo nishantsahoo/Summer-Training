@@ -32,24 +32,76 @@
           </tr>
         </thead>
         <tbody>
+          
+          <!-- Product_1 -->
           <tr>
-            <td id="1" name="Name">Product_1</td>
-            <td id="1" name="Cost">1500</td>
-            <td id="1" name="Quantity" style="font: monospace;"><button id="1" name="minus" class="red" style="float: left;">-</button>0<button id="1" name="plus" class="green" style="float: right;">+</button></td>
-            <td><button id="1" style="margin-left: 0.85em" name="add-to-cart" class="purple">Add to Cart</button></td>
+
+            <td id="1" name="Name">
+              <product id="1">Product_1<product>
+            </td>
+
+            <td id="1" name="Cost">
+              <cost id="1">1500</cost>
+            </td>
+
+            <td id="1" name="Quantity" style="font: monospace;">
+              <button id="1" name="minus" class="red" style="float: left;">-</button>
+              <quantity id="1"></quantity>
+              <button id="1" name="plus" class="green" style="float: right;">+</button>
+            </td>
+
+            <td>
+              <button id="1" style="margin-left: 0.85em" name="add-to-cart" class="purple">Add to Cart</button>
+            </td>
+
           </tr>
+
+          <!-- Product_2 -->
           <tr>
-            <td id="2" name="Name">Product_2</td>
-            <td id="2" name="Cost">400</td>
-            <td id="2" name="Quantity" style="font: monospace;"><button id="2" class="red" name="minus" style="float: left;">-</button>0<button id="2" name="plus" class="green" style="float: right;">+</button></td>            
-            <td><button name="add-to-cart" id="2" style="margin-left: 0.85em" class="purple">Add to Cart</button></td>
+
+            <td id="2" name="Name">
+              <product id="2">Product_2<product>
+            </td>
+
+            <td id="2" name="Cost">
+              <cost id="2">400</cost>
+            </td>
+
+            <td id="2" name="Quantity" style="font: monospace;">
+              <button id="2" name="minus" class="red" style="float: left;">-</button>
+              <quantity id="2"></quantity>
+              <button id="2" name="plus" class="green" style="float: right;">+</button>
+            </td>
+
+            <td>
+              <button id="2" style="margin-left: 0.85em" name="add-to-cart" class="purple">Add to Cart</button>
+            </td>
+
           </tr>
+
+          <!-- Product_3 -->
           <tr>
-            <td id="3" name="Name">Product_3</td>
-            <td id="3" name="Cost">4000</td>            
-            <td id="3" name="Quantity" style="font: monospace;"><button class="red" id="3" name="minus" style="float: left;">-</button>0<button id="3" name="plus" class="green" style="float: right;">+</button></td>
-            <td><button id="3" style="margin-left: 0.85em" name="add-to-cart" class="purple">Add to Cart</button></td>
+
+            <td id="3" name="Name">
+              <product id="3">Product_3<product>
+            </td>
+
+            <td id="3" name="Cost">
+              <cost id="3">3770</cost>
+            </td>
+
+            <td id="3" name="Quantity" style="font: monospace;">
+              <button id="3" name="minus" class="red" style="float: left;">-</button>
+              <quantity id="3"></quantity>
+              <button id="3" name="plus" class="green" style="float: right;">+</button>
+            </td>
+
+            <td>
+              <button id="3" style="margin-left: 0.85em" name="add-to-cart" class="purple">Add to Cart</button>
+            </td>
+
           </tr>
+
         </tbody>
       </table>
       
@@ -65,21 +117,14 @@
   <div class="card-block" id="cart">
     <!-- List Group -->
     <ul class="list-group list-group-flush" id="cartItems">
-      <div class="card-header">You have <span class="noOfProducts" id="noOfProducts"></span> product(s) in your cart!</div>
+      <div class="card-header">
+        You have <span class="noOfProducts" id="noOfProducts"></span> product(s) in your cart!
+      </div>
       <table class="table table-bordered">
-        <thead id="cartItemsHead">
 
-          <!-- <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-          </tr> 
-          -->
+        <thead id="cartItemsHead"></thead>
+        <tbody id="cartItemsBody"></tbody>
 
-        </thead>
-        <tbody id="cartItemsBody">
-          
-        </tbody>
       </table>
     </ul>
   </div>

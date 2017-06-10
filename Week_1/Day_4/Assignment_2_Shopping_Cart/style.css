@@ -59,7 +59,7 @@ button{
     float:left;
     list-style:none;
     text-decoration:none;
-    font:700 10px Lato;
+    font:700 10px monospace;
     padding:0px 4px 0px 4px;
     border:3px solid #999faf;
     color:#999faf;
