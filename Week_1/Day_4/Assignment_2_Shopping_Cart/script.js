@@ -3,6 +3,18 @@
 $(function () {
 
 	var done = false;
+
+    function isCartEmpty() {
+        var counter = 0;
+        for(i=1;i<=3;i++)
+        {
+            if (localStorage.getItem('prod_' + i)) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
     function setTotalCost() {
     	var total_cost = 0;
     	for(i=1;i<=3;i++)
@@ -66,9 +78,9 @@ $(function () {
     				var amount = cost*cartItem.quantity;
     				var delCart = "delCartItem";
     				var cartString = "<tr><td><button id=" + i + " class=" + "red" + " name=" + "delCartItem" + ">x</button><cname id=" + i + ">"+name+"</cname></td>";
-    				cartString += "<td>";
+    				cartString += "<td><button id=" + i + " name=" + "cminus" + " class=" + "red" + ">-</button>";
     				cartString += "<cquant id=" + i + ">"+cartItem.quantity+"</cquant>";
-    				cartString += "</td>";
+    				cartString += "<button id=" + i + " name=" + "cplus" + " class=" + "green>+</button></td>";
     				cartString +="<td><camount id=" + i + ">"+amount+"</camount></td></tr>";
     				cart_body.append(cartString);
     			}
@@ -123,7 +135,7 @@ $(function () {
     function qtyDecrement(qty_id) {
     	if (($('quantity[id=' + qty_id + ']').text())>1) { // Quantity can't be lesser than 1
     		var x = +$('quantity[id=' + qty_id + ']').text();
-    	$('quantity[i`d=' + qty_id + ']').text(--x);	
+    		$('quantity[id=' + qty_id + ']').text(--x);	
     	}
     } // end of the function qtyDecrement
 
@@ -132,24 +144,73 @@ $(function () {
     	$('quantity[id=' + qty_id + ']').text(++x);
     } // end of the function qtyIncrement
 
-
-    $('body').on('click','.red' , function() {
+    // Very important function
+    $('body').on('click', '.red' , function() { // To delete elements after they've been dynamically updated
     	if (this.name == "delCartItem") {
-    		alert(this.id);
     		localStorage.removeItem("prod_" + this.id);
     		cartRefresh();
+            if(!isCartEmpty())
+            {
+                done = false;
+            }
     	}
-    });
 
+        if (this.name == "cminus") {
+            $('cquant[id=' + this.id + ']').text()
+            if (($('cquant[id=' + this.id + ']').text())>1) { // Quantity can't be lesser than 1
+            var x = +$('cquant[id=' + this.id + ']').text();
+            $('cquant[id=' + this.id + ']').text(--x); 
+            }
+            var qty = +$('cquant[id=' + this.id + ']').text();
+            cartItem = JSON.parse(localStorage.getItem('prod_'+this.id));
+                newcartItem = {
+                    'id': this.id,
+                    'quantity': (qty)
+                };
+                localStorage.removeItem('prod_'+this.id)
+                localStorage.setItem('prod_' + this.id, JSON.stringify(newcartItem));
+            cartRefresh();
+        }
+
+     });
+
+    $('body').on('click', '.green' , function() { // To delete elements after they've been dynamically updated
+        if (this.name == "cplus") {
+            var x = +$('cquant[id=' + this.id + ']').text();
+            $('cquant[id=' + this.id + ']').text(++x);
+        var qty = +$('cquant[id=' + this.id + ']').text();
+        cartItem = JSON.parse(localStorage.getItem('prod_'+this.id));
+                newcartItem = {
+                    'id': this.id,
+                    'quantity': (qty)
+                };
+                localStorage.removeItem('prod_'+this.id)
+                localStorage.setItem('prod_' + this.id, JSON.stringify(newcartItem));
+        cartRefresh();
+        }
+     });
+
+    
     $("button").click(function() { // button click function
 
-    	// alert(this.id + ':' +this.name);
-    	if (this.name == "minus") { // if '-' button is clicked
-    		qtyDecrement(this.id); // decrease quantity by 1
-    	}
     	if (this.name == "plus") { // if '-' button is clicked
     		qtyIncrement(this.id); // increase quantity by 1
     	}
+
+    	if (this.name == "minus") { // if '-' button is clicked
+    		qtyDecrement(this.id); // decrease quantity by 1
+    	}
+
+    	if (this.name == "cminus") {
+
+    		cartRefresh(); // call of the function cartRefresh
+    	}
+
+    	if (this.name == "cplus") {
+    		
+    		cartRefresh(); // call of the function cartRefresh
+    	}
+
     	if (this.name == "add-to-cart") {
     		var qty = +$('quantity[id=' + this.id + ']').text();
     		var cost = +$('cost[id=' + this.id + ']').text();
@@ -180,16 +241,6 @@ $(function () {
     		for (var i = 3; i >= 1; i--) {
     			localStorage.removeItem('prod_' + i);
     		}
-    	}
-
-    	if (this.name == "cminus") {
-
-    		cartRefresh(); // call of the function cartRefresh
-    	}
-
-    	if (this.name == "cplus") {
-    		
-    		cartRefresh(); // call of the function cartRefresh
     	}
 
 	});
