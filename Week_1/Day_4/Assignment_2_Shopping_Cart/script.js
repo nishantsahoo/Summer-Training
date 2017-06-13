@@ -246,7 +246,8 @@ $(function () {
     		$('quantity[id=' + this.id + ']').text(1);
     	}
     	
-    	if (this.name == "clear-cart") {
+    	if (this.name == "checkout") {
+            alert('Thank you for shopping!');
     		reset(); // call of the function reset
     		for (var i = 3; i >= 1; i--) {
     			localStorage.removeItem('prod_' + i);
