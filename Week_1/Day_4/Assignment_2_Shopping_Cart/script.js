@@ -53,7 +53,7 @@ $(function () {
     		no_of_products = +localStorage.getItem('no_of_products');
     		$('#noOfProducts').text(no_of_products);
     	}
-    } // end of the function setNoOfProucts
+    } // end of the function setNoOfProucts 
 
     function updateCart() {
     	
@@ -80,11 +80,13 @@ $(function () {
     				var cartString = "<tr><td><button id=" + i + " class=" + "red" + " name=" + "delCartItem" + ">x</button><cname id=" + i + ">"+name+"</cname></td>";
     				cartString += "<td><button id=" + i + " name=" + "cminus" + " class=" + "red" + ">-</button>";
     				cartString += "<cquant id=" + i + ">"+cartItem.quantity+"</cquant>";
-    				cartString += "<button id=" + i + " name=" + "cplus" + " class=" + "green>+</button></td>";
+    				cartString += "<button id=" + i + " name=" + "cplus" + " class=" + "green" +">+</button></td>";
     				cartString +="<td><camount id=" + i + ">"+amount+"</camount></td></tr>";
     				cart_body.append(cartString);
+
     			}
     		}
+            setCartStyle(); // call of the function setCartStyle
     	}
     	else
     	{
@@ -96,12 +98,20 @@ $(function () {
 
     } // end of the function updateCart
 
+    function setCartStyle() { // Using this function to set style of cminus and cplus buttons
+        var cButtonsPlus = $('button[name="cplus"]');
+        var cButtonsMinus = $('button[name="cminus"]');
+        for (var i = 0; i < 3 ; i++) {
+            cButtonsMinus[i].style.float = "left";
+            cButtonsPlus[i].style.float = "right";
+        }
+    }
+
     function cartRefresh() { // every time the page is loaded, the card is refreshed
 
     	setTotalCost(); // call of the function setTotalCost
     	setNoOfProducts(); // call of the function setNoOfProducts
     	updateCart(); // call of the function updateCart
-
     } // end of the function cartRefresh
 
     function init() {
@@ -233,6 +243,7 @@ $(function () {
 	    	}
     		
     		cartRefresh(); // call of the function cartRefresh
+            setCartStyle(); // call of the function setCartStyle
     		$('quantity[id=' + this.id + ']').text(1);
     	}
     	
