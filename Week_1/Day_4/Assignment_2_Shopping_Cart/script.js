@@ -83,7 +83,6 @@ $(function () {
     				cartString += "<button id=" + i + " name=" + "cplus" + " class=" + "green" +">+</button></td>";
     				cartString +="<td><camount id=" + i + ">"+amount+"</camount></td></tr>";
     				cart_body.append(cartString);
-
     			}
     		}
             setCartStyle(); // call of the function setCartStyle
