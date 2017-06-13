@@ -1,9 +1,9 @@
 // $ function is loaded only once HTML has completely loaded
 
-$(function () {
+$(function() {
 
-	var done = false;
-
+	var done = false; // done var is used to keep a check whether the cart is empty or not
+    
     function isCartEmpty() {
         var counter = 0;
         for(i=1;i<=3;i++)
@@ -13,7 +13,7 @@ $(function () {
             }
         }
         return counter;
-    }
+    } // end of the function isCartEmpty
 
     function setTotalCost() {
     	var total_cost = 0;
@@ -59,7 +59,7 @@ $(function () {
     	
     	no_of_products = +localStorage.getItem('no_of_products');
     	if (no_of_products) {
-    		if (!done) {
+    		if (!done) { // to load the table heads on refresh of the page if (no_of_products>0)
     			var cart_head = $('#cartItemsHead');
     			var head_string = "<tr><th>Product Name</th><th>Quantity</th><th>Amount</th><tr>";
     			cart_head.append(head_string);
@@ -92,7 +92,7 @@ $(function () {
     		var cart_head = $('#cartItemsHead');
     		cart_head.empty(); // to remove the child elements
     		var cart_body = $('#cartItemsBody');
-    		cart_body.empty(); // to delete its elements
+    		cart_body.empty(); // to remove the child elements
     	}
 
     } // end of the function updateCart
@@ -101,10 +101,12 @@ $(function () {
         var cButtonsPlus = $('button[name="cplus"]');
         var cButtonsMinus = $('button[name="cminus"]');
         for (var i = 0; i < 3 ; i++) {
-            cButtonsMinus[i].style.float = "left";
-            cButtonsPlus[i].style.float = "right";
+            if (cButtonsMinus[i]) { // check if the button exists
+                cButtonsMinus[i].style.float = "left";
+                cButtonsPlus[i].style.float = "right";    
+            }
         }
-    }
+    } // end of the function setCartStyle
 
     function cartRefresh() { // every time the page is loaded, the card is refreshed
 
@@ -162,7 +164,7 @@ $(function () {
             {
                 done = false;
             }
-    	}
+    	} // delCartItem button
 
         if (this.name == "cminus") {
             $('cquant[id=' + this.id + ']').text()
@@ -178,8 +180,8 @@ $(function () {
                 };
                 localStorage.removeItem('prod_'+this.id)
                 localStorage.setItem('prod_' + this.id, JSON.stringify(newcartItem));
-            cartRefresh();
-        }
+            cartRefresh(); // call of the function cartRefresh
+        } // cminus button
 
      });
 
@@ -195,7 +197,7 @@ $(function () {
                 };
                 localStorage.removeItem('prod_'+this.id)
                 localStorage.setItem('prod_' + this.id, JSON.stringify(newcartItem));
-        cartRefresh();
+                cartRefresh(); // call of the function cartRefresh
         }
      });
 
@@ -204,21 +206,11 @@ $(function () {
 
     	if (this.name == "plus") { // if '-' button is clicked
     		qtyIncrement(this.id); // increase quantity by 1
-    	}
+    	} // plus button
 
     	if (this.name == "minus") { // if '-' button is clicked
     		qtyDecrement(this.id); // decrease quantity by 1
-    	}
-
-    	if (this.name == "cminus") {
-
-    		cartRefresh(); // call of the function cartRefresh
-    	}
-
-    	if (this.name == "cplus") {
-    		
-    		cartRefresh(); // call of the function cartRefresh
-    	}
+    	} // minus button
 
     	if (this.name == "add-to-cart") {
     		var qty = +$('quantity[id=' + this.id + ']').text();
@@ -244,7 +236,7 @@ $(function () {
     		cartRefresh(); // call of the function cartRefresh
             setCartStyle(); // call of the function setCartStyle
     		$('quantity[id=' + this.id + ']').text(1);
-    	}
+    	} // add-to-cart button
     	
     	if (this.name == "checkout") {
             alert('Thank you for shopping!');
@@ -252,7 +244,7 @@ $(function () {
     		for (var i = 3; i >= 1; i--) {
     			localStorage.removeItem('prod_' + i);
     		}
-    	}
+    	} // checkout button
 
 	});
     
